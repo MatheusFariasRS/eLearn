@@ -13,3 +13,9 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Welcome to the platform', CURRENT_TIMESTAMP, false, '/dashboard', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('New course available: Java Basics', CURRENT_TIMESTAMP, false, '/courses/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id)  VALUES ('Your enrollment was confirmed', CURRENT_TIMESTAMP, true, '/enrollments', 2);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('New lesson released', CURRENT_TIMESTAMP, false, '/lessons/5', 2);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Test notification', '2026-01-29T10:00:00Z', false, '/test', 1);
