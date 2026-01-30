@@ -29,12 +29,11 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, Set<Role> roles) {
+    public User(Long id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.roles = roles;
     }
 
     public Long getId() {
@@ -75,6 +74,15 @@ public class User {
 
     public void addRoles(Role role) {
         roles.add(role);
+    }
+
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if (role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
