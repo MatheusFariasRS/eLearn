@@ -2,7 +2,7 @@ package com.elearn.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_course")
@@ -14,6 +14,9 @@ public class Course {
     private String name;
     private String imgUri;
     private String imgGrayUri;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Offer> offers = new ArrayList<>();
 
     public Course() {
     }
@@ -55,6 +58,15 @@ public class Course {
 
     public void setImgGrayUri(String imgGrayUri) {
         this.imgGrayUri = imgGrayUri;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void addOffer(Offer offer){
+        offers.add(offer);
+        offer.setCourse(this);
     }
 
     @Override
